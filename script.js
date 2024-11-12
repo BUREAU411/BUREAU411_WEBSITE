@@ -47,16 +47,28 @@ function preloadGroupThree() {
     }
 }
 
-// Function to change the background image
+// Function to change the background image with robust preloading
 function changeBackground() {
-    document.body.style.backgroundImage = `url(${backgrounds[currentBackgroundIndex]})`;
-    currentBackgroundIndex = (currentBackgroundIndex + 1) % backgrounds.length;
+    const img = new Image();
+    img.src = backgrounds[currentBackgroundIndex];
 
-    // Trigger phase 2 preloading when displaying the first image
-    if (currentBackgroundIndex === 1) preloadGroupTwo();
+    // Advance index before attempting to load the image
+    const nextIndex = (currentBackgroundIndex + 1) % backgrounds.length;
 
-    // Trigger phase 3 preloading when displaying the fifth image
-    if (currentBackgroundIndex === 5) preloadGroupThree();
+    // Set the background once the image is fully loaded
+    img.onload = () => {
+        document.body.style.backgroundImage = `url(${img.src})`;
+        currentBackgroundIndex = nextIndex;
+
+        // Trigger phase 2 and 3 preloading based on index
+        if (currentBackgroundIndex === 1) preloadGroupTwo();
+        if (currentBackgroundIndex === 5) preloadGroupThree();
+    };
+
+    // Fallback to update index even if image fails to load
+    img.onerror = () => {
+        currentBackgroundIndex = nextIndex;
+    };
 }
 
 // Start the background change rotation every 3 seconds
