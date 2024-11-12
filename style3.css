@@ -1,0 +1,114 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body setup for white background and text formatting */
+body {
+    font-family: 'Montserrat', sans-serif; /* Montserrat Regular */
+    background-color: white; /* White background */
+    color: black; /* Black text color */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to the top */
+    align-items: center;
+    text-align: justify; /* Justify text across the full width */
+    height: 100%; /* Full height */
+    width: 100%; /* Full width */
+    overflow: auto; /* Allow scrolling on the page */
+}
+
+/* Logo Styling (Color changing effect) */
+.logo {
+    max-width: 90%; /* Make the logo take 90% of the width */
+    height: auto;
+    margin: 20px; /* Adds space between the logo and edges on desktop */
+    animation: color-change 3s infinite; /* Color-changing animation */
+}
+
+/* Color-changing animation for the logo */
+@keyframes color-change {
+    0% { filter: grayscale(100%); }
+    33% { filter: grayscale(0%) hue-rotate(90deg); }
+    66% { filter: grayscale(50%) hue-rotate(180deg); }
+    100% { filter: grayscale(100%); }
+}
+
+/* About text styling */
+.about-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400; /* Regular weight */
+    line-height: 1.6;
+    max-width: 800px; /* Limit text width */
+    margin: 20px 0;
+    padding: 0 20px; /* Padding for smaller screens */
+    width: 100%; /* Make sure it fills the available width */
+    box-sizing: border-box;
+}
+
+/* Paragraph styling */
+.about-text p {
+    margin: 20px 0;
+}
+
+/* Button styling */
+.button {
+    display: inline-block;
+    padding: 15px 25px;
+    margin: 1px;
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif; /* Apply Montserrat font */
+    font-weight: 800; /* Apply Montserrat Black */
+    text-decoration: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 1); /* 50% opacity */
+    border-radius: 0px;
+    transition: background-color 0.3s;
+}
+
+/* Button hover effect */
+.button:hover {
+    background-color: rgba(255, 0, 0, 1); /* Slightly lighter color on hover */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 600px) {
+    /* Adjust logo for smaller screens */
+    .logo {
+        max-width: 100%; /* Allow the logo to take up more space on mobile */
+        margin: 10px; /* Less margin on mobile */
+    }
+
+    /* Adjust About text styling */
+    .about-text {
+        font-size: 4vw; /* Make the font size more responsive */
+        padding: 0 10px; /* Reduce padding for smaller screens */
+        margin: 10px 0; /* Reduce margins for smaller screens */
+    }
+
+    /* Ensure button is centered and responsive */
+    .button-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .button {
+        font-size: 18px; /* Smaller font size for mobile devices */
+        padding: 12px 20px;
+    }
+}
+
+/* Media query for even smaller screens (like very small phones) */
+@media (max-width: 400px) {
+    .about-text {
+        font-size: 6vw; /* Increase text size for very small screens */
+        padding: 0 5px; /* Further reduce padding */
+    }
+
+    .button {
+        font-size: 16px; /* Smaller font size for very small screens */
+        padding: 10px 15px;
+    }
+}

@@ -1,0 +1,74 @@
+/* style2.css */
+
+/* Body setup to center content vertically and horizontally */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: #fff; /* Optional, to avoid white space */
+}
+
+/* Styling for the contact email text */
+.contact-info-text {
+    font-family: 'Montserrat', sans-serif; /* Apply Montserrat font */
+    font-weight: 900; /* Use Montserrat Black */
+    font-size: 6vw; /* Responsive font size */
+    text-align: center; /* Center the email text */
+    color: black; /* Initial color */
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden; /* Prevent text overflow */
+    padding: 0 5vw; /* Add padding to prevent cutting off on smaller screens */
+    animation: color-change 3s infinite; /* Color change animation */
+}
+
+/* Color change animation for the email */
+@keyframes color-change {
+    0% { color: black; }
+    33% { color: cyan; }
+    66% { color: red; }
+    100% { color: black; }
+}
+
+/* Media query for small devices */
+@media (max-width: 390px) {
+    .contact-info-text {
+        font-size: 7vw; /* Slightly bigger font size for small screens */
+        padding: 0 4vw; /* Adjust padding */
+    }
+}
+
+/* Media query for even smaller screens */
+@media (max-width: 200px) {
+    .contact-info-text {
+        font-size: 5vw; /* Slightly bigger font size for ultra-small screens */
+        padding: 0 2vw; /* Reduce padding */
+    }
+}
+
+/* Button container for positioning */
+.button-container {
+    text-align: center;
+    margin-top: 20px; /* Space between email and button */
+}
+
+/* Button styling */
+.button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif; /* Apply Montserrat font */
+    font-weight: 900; /* Use Montserrat Black */
+    text-decoration: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 1);
+    border-radius: 0px;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.button:hover {
+    background-color: 

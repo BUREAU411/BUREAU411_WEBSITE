@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <!-- Favicon link (thumbnail) -->
+    <link rel="icon" href="Thumbnail - BUREAU411.ico" type="image/x-icon">
+    <!-- Montserrat Black font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <style>
+        /* Body setup for full-screen height */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff; /* Optional, to avoid white space */
+        }
+
+        /* Styling for the COMING SOON text */
+        .coming-soon-text {
+            font-family: 'Montserrat', sans-serif; /* Use Montserrat Black */
+            font-weight: 900;
+            font-size: 10vw; /* Responsive size based on viewport width */
+            text-align: center;
+            position: relative; /* Ensure the text is above the background image */
+            z-index: 1; /* Ensure text stays on top */
+            color: black; /* Start with black text color */
+            animation: color-change 3s infinite; /* Color-changing animation */
+        }
+
+        /* Background image setup */
+        .coming-soon-text::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; /* Make the image the width of the text */
+            height: 100%; /* Full height of the text */
+            background-image: url('Logo - BUREAU411 YELLOW.png'); /* Ensure this matches the file name exactly */
+            background-size: contain; /* Scale the image to fit the text */
+            background-repeat: no-repeat; /* Prevent the image from repeating */
+            z-index: -1; /* Place the image behind the text */
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Animation for color change between black, cyan, and red */
+        @keyframes color-change {
+            0% { color: black; }
+            33% { color: cyan; }
+            66% { color: red; }
+            100% { color: black; }
+        }
+    </style>
+</head>
+<body>
+    <div class="coming-soon-text">COMING SOON</div>
+</body>
+</html>
